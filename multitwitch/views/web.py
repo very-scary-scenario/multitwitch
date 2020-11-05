@@ -4,14 +4,10 @@ from pyramid.response import FileResponse
 class WebView:
     @web(template="web/home.tmpl")
     def home(request):
-        streams = request.matchdict['streams']
-        uniq_streams = []
-        for s in streams:
-            if s not in uniq_streams:
-                uniq_streams.append(s)
-        return {'project' : 'multitwitch',
+        streams = ['veryscaryscenario', 'adzpearson']
+        return {'project' : 'Very Scary Scenario does some streams',
                 'streams' : streams,
-                'unique_streams' : uniq_streams,
+                'unique_streams' : streams,
                 'nstreams' : len(streams)}
 
     @staticmethod
